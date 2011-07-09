@@ -1,0 +1,30 @@
+[alias]
+    st = status
+    ci = commit
+    co = checkout
+    br = branch
+    di = diff
+    dic = diff --cached
+    glog = log --graph
+    rb = svn rebase
+    ss = stash
+    sci = svn dcommit
+    ssp = stash pop
+[user]
+    name = 
+    email = 
+[color]
+    ui = auto
+    diff = auto
+    status = auto
+    branch = auto
+[core]
+    excludesfile = ~/.gitignore
+[giggle]
+	main-window-maximized = true
+	main-window-geometry = 0x0+0+0
+	history-view-vpane-position = 422
+	main-window-view = HistoryView
+	file-view-vpane-position = 798
+[http]
+	sslVerify = true
