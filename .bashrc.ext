@@ -16,6 +16,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias pu='pushd .'
 alias po='popd'
+alias vi='vim -c NERDTree'
 
 function git_branch {
     ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
