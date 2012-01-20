@@ -1,0 +1,20 @@
+set mapleader=","
+loadplugins '\.(js|penta)$'
+group user
+set titlestring="Firefox with pentadactyl"
+set nextpattern='(下|后)一?(页|頁|篇|章|张)|次のページ|次へ','^\bnext\b','\bnext\b','^\bmore\b','\bmore\b','^(>|»)$','^(>>|»)$','^(>|»)','(>|»)$'
+set previouspattern='(上|前)一?(页|頁|篇|章|张)|次のページ|次へ','^\bprev\b','\bprev\b','^\bprevious\b','\bprevious\b','^(<|«)$','^(<<|«)$','^(<|«)','(<|«)$'
+noremap <C-c> <C-v><C-c>
+map <leader>t :set go!=T<CR>
+map <leader>r :rehash<CR>
+noremap v iv 
+vmap y <C-v><C-c><ESC> 
+nmap <leader>h [[
+nmap <leader>l ]] 
+map -modes=v,i,c,t jj -builtin <ESC>
+map -modes=n,v,i,c <C-c> -builtin <C-v><C-c>
+map s :tabopen google 
+map S :exe ":tabopen google "+content.getSelection()<CR>
+imap <C-n> <Esc>:tabnext<CR>
+imap <C-p> <Esc>:tabprev<CR>
+
