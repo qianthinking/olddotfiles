@@ -1,0 +1,2 @@
+#!/bin/bash
+wmctrl -l -p | awk '{print "echo \`ps -p "$3"\` + \""$0"\""}' | sh | grep $1 | sed -e "s/^.*`hostname` //" | awk '{print "wmctrl -F -a \""$0"\""}' | sh
