@@ -14,8 +14,8 @@
     pl = pull
     plr = pull --rebase
 [user]
-    name = Leon Li
-	email = qianthinking@gmail.com
+    name = 
+	email = 
 [color]
     ui = auto
     diff = auto
