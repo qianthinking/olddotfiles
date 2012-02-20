@@ -10,9 +10,12 @@
     ss = stash
     sci = svn dcommit
     ssp = stash pop
+    ps = push
+    pl = pull
+    plr = pull --rebase
 [user]
-    name = 
-    email = 
+    name = Leon Li
+	email = qianthinking@gmail.com
 [color]
     ui = auto
     diff = auto
@@ -20,11 +23,16 @@
     branch = auto
 [core]
     excludesfile = ~/.gitignore
+
 [giggle]
 	main-window-maximized = true
 	main-window-geometry = 0x0+0+0
 	history-view-vpane-position = 422
 	main-window-view = HistoryView
 	file-view-vpane-position = 798
+#[http]
+#	proxy = 127.0.0.1:8118
 [http]
 	sslVerify = true
+[push]
+	default = current
