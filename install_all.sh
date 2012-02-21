@@ -16,10 +16,14 @@ function install_script {
     done
 }
 
-read -p "choose install dir(default is ~/.config_all): " INSTALL_DIR 
-INSTALL_DIR=${INSTALL_DIR:-~/.config_all}
+read -p "choose install dir(default is ~/.config_all): " input
+INSTALL_DIR="~/.config_all"
+INSTALL_DIR=${input:-$INSTALL_DIR}
 echo "install to $INSTALL_DIR"
 mkdir -p $INSTALL_DIR
+if [ ! -d "$INSTALL_DIR" ]; then
+    exit
+fi
 
 #install git-prompt
 if [ -d "$INSTALL_DIR/git-prompt" ]; then
