@@ -3,7 +3,7 @@
 function install_script {
     REQUIRE_INPUT=true
     while $REQUIRE_INPUT; do
-        read -p "Do you wish to install this $1(old files will be renamed with time suffix)?" yn
+        read -p "Do you wish to install this $1(old files will be renamed with time suffix)? " yn
         case $yn in
             [Yy]* ) 
                 mv ~/$1{,.`date +%F_%T`} 2>/dev/null
@@ -16,7 +16,9 @@ function install_script {
     done
 }
 
+read -p "choose install dir(default is ~/.config_all): " INSTALL_DIR 
 INSTALL_DIR=${INSTALL_DIR:-~/.config_all}
+echo "install to $INSTALL_DIR"
 mkdir -p $INSTALL_DIR
 
 #install git-prompt
@@ -51,7 +53,7 @@ else
     cd $INSTALL_DIR
     REQUIRE_INPUT=true
     while $REQUIRE_INPUT; do
-        read -p "Do you wish to install this vim config into ~/.vim and ~/.vimrc(old files will be renamed with time suffix)?" yn
+        read -p "Do you wish to install this vim config into ~/.vim and ~/.vimrc(old files will be renamed with time suffix)? " yn
         case $yn in
             [Yy]* ) 
                 mv ~/.vim{,.`date +%F_%T`} 2>/dev/null
