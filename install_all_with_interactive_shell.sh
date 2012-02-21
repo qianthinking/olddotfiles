@@ -17,7 +17,7 @@ function install_script {
 }
 
 read -p "choose install dir(default is ~/.config_all): " input
-INSTALL_DIR="~/.config_all"
+INSTALL_DIR=~/.config_all
 INSTALL_DIR=${input:-$INSTALL_DIR}
 echo "install to $INSTALL_DIR"
 mkdir -p $INSTALL_DIR
