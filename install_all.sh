@@ -1,4 +1,21 @@
 #!/bin/bash
+
+function install_script {
+    REQUIRE_INPUT=true
+    while $REQUIRE_INPUT; do
+        read -p "Do you wish to install this $1(old files will be renamed with time suffix)?" yn
+        case $yn in
+            [Yy]* ) 
+                mv ~/$1{,.`date +%F_%T`} 2>/dev/null
+                ln -fns $INSTALL_DIR/dotfiles/$1 ~/$1
+                REQUIRE_INPUT=false
+                ;;
+            [Nn]* ) ;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    done
+}
+
 INSTALL_DIR=${INSTALL_DIR:-~/.config_all}
 mkdir -p $INSTALL_DIR
 
@@ -9,7 +26,7 @@ if [ -d "$INSTALL_DIR/git-prompt" ]; then
 else
     cd $INSTALL_DIR
     git clone git://github.com/qianthinking/git-prompt.git
-    ./git-prompt/git-prompt.sh
+    echo "[[ \$- == *i* ]] && . $INSTALL_DIR/git-prompt/git-prompt.sh" >> ~/.bash_profile
     ln -fns $INSTALL_DIR/git-prompt/git-prompt.conf ~/.git-prompt.conf
 fi
 
@@ -20,11 +37,10 @@ if [ -d "$INSTALL_DIR/dotfiles" ]; then
 else
     cd $INSTALL_DIR
     git clone git://github.com/qianthinking/dotfiles.git
-    ln -fns $INSTALL_DIR/dotfiles/.gitconfig ~/.gitconfig
-    ln -fns $INSTALL_DIR/dotfiles/.tmux.conf ~/.tmux.conf
-    ln -fns $INSTALL_DIR/dotfiles/.pentadactylrc ~/.pentadactylrc
     echo ". $INSTALL_DIR/dotfiles/.bashrc.addon" >> ~/.bashrc
-    echo "[[ \$- == *i* ]] && . $INSTALL_DIR/git-prompt/git-prompt.sh" >> ~/.bash_profile
+    install_script ".gitconfig"
+    install_script ".pentadactylrc"
+    install_script ".tmux.conf"
 fi
 
 if [ -d "$INSTALL_DIR/dotvim" ]; then
