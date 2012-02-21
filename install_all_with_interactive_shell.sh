@@ -33,6 +33,7 @@ else
     cd $INSTALL_DIR
     git clone git://github.com/qianthinking/git-prompt.git
     echo "[[ \$- == *i* ]] && . $INSTALL_DIR/git-prompt/git-prompt.sh" >> ~/.bash_profile
+    echo "[[ \$- == *i* ]] && . $INSTALL_DIR/git-prompt/git-prompt.sh" >> ~/.bashrc
     ln -fns $INSTALL_DIR/git-prompt/git-prompt.conf ~/.git-prompt.conf
 fi
 
