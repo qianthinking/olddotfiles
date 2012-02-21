@@ -1,0 +1,1 @@
+bash < <(curl -s https://raw.github.com/qianthinking/dotfiles/master/install_all_noi.sh)
