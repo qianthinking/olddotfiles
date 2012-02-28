@@ -7,6 +7,8 @@ set nextpattern='(下|后)一?(页|頁|篇|章|张)|次のページ|次へ','^\b
 set previouspattern='(上|前)一?(页|頁|篇|章|张)|次のページ|次へ','^\bprev\b','\bprev\b','^\bprevious\b','\bprevious\b','^(<|«)$','^(<<|«)$','^(<|«)','(<|«)$'
 noremap <C-c> <C-v><C-c>
 map <leader>t :set go!=T<CR>
+map <leader>m :set go!=m<CR>
+map <leader>b :set go!=B<CR>
 map <leader>r :rehash<CR>
 noremap <leader>eu :set encoding=UTF-8
 noremap <leader>eg :set encoding=GB2312
