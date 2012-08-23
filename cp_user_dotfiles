@@ -9,4 +9,4 @@ cp /home/$1/.bashrc ~/
 cp /home/$1/.tmux.conf ~/
 cp -r /home/$1/.config_all ~/
 cp -r /home/$1/.git* ~/
-cp -r /home/$1/.vim ~/
+cp -r /home/$1/.vim* ~/
