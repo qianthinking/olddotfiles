@@ -1,0 +1,12 @@
+#!/bin/bash
+if [[ -z "$1" ]]
+then
+  echo "Usage: cp_user_dotfiles username"
+  exit 1
+fi
+cp /home/$1/.bash_profile ~/
+cp /home/$1/.bashrc ~/
+cp /home/$1/.tmux.conf ~/
+cp -r /home/$1/.config_all ~/
+cp -r /home/$1/.git* ~/
+cp -r /home/$1/.vim ~/
