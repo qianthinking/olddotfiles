@@ -10,7 +10,9 @@ function install_script {
                 ln -fns $INSTALL_DIR/dotfiles/$1 ~/$1
                 REQUIRE_INPUT=false
                 ;;
-            [Nn]* ) ;;
+            [Nn]* ) 
+                REQUIRE_INPUT=false
+                ;;
             * ) echo "Please answer yes or no.";;
         esac
     done
@@ -71,7 +73,9 @@ else
                 make
                 REQUIRE_INPUT=false
                 ;;
-            [Nn]* ) exit;;
+            [Nn]* )
+                REQUIRE_INPUT=false
+                ;;
             * ) echo "Please answer yes or no.";;
         esac
     done
