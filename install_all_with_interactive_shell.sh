@@ -80,3 +80,24 @@ else
         esac
     done
 fi
+
+#install scm_breeze
+if [ -d "~/.scm_breeze" ]; then
+    cd ~/.scm_breeze
+    git pull
+else
+    while $REQUIRE_INPUT; do
+        read -p "Do you wish to install scm_breeze into ~/.scm_breeze? " yn
+        case $yn in
+            [Yy]* ) 
+                git clone git://github.com/ndbroadbent/scm_breeze.git ~/.scm_breeze
+                ~/.scm_breeze/install.sh
+                REQUIRE_INPUT=false
+                ;;
+            [Nn]* )
+                REQUIRE_INPUT=false
+                ;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    done
+fi
