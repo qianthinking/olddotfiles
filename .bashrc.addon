@@ -21,6 +21,11 @@ alias less='less -R'
 
 export TERM=xterm-256color
 alias tm='TERM=xterm-256color tmux -2'
+alias tn='tm new -s'
+alias tl='tm ls'
+alias ta='tm attach'
+alias tt='tm attach -t'
+
 export VISUAL=vi EDITOR=vi
 if [[ -s ~/.rvm/scripts/rvm ]]; then
    source ~/.rvm/scripts/rvm
