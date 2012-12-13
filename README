@@ -1,4 +1,7 @@
-#execute the command and follow the result prompt to execute /tmp/install_all.sh
-bash < <(curl -s https://raw.github.com/qianthinking/dotfiles/master/install_all_noi.sh)
+#install default without customization
+bash < <(curl -s https://raw.github.com/qianthinking/dotfiles/master/install_default.sh)
+
+#install all in interactive shell with customization
+bash < <(curl -s https://raw.github.com/qianthinking/dotfiles/master/install_all.sh)
 
 #re-login, you will get new prompt of bash

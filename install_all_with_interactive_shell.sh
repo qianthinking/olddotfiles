@@ -34,8 +34,12 @@ if [ -d "$INSTALL_DIR/git-prompt" ]; then
 else
     cd $INSTALL_DIR
     git clone git://github.com/qianthinking/git-prompt.git
-    echo "[[ \$- == *i* ]] && . $INSTALL_DIR/git-prompt/git-prompt.sh" >> ~/.bash_profile
-    echo "[[ \$- == *i* ]] && . $INSTALL_DIR/git-prompt/git-prompt.sh" >> ~/.bashrc
+    if ! grep "git-prompt.sh" ~/.bash_profile; then
+        echo "[[ \$- == *i* ]] && . $INSTALL_DIR/git-prompt/git-prompt.sh" >> ~/.bash_profile
+    fi
+    if ! grep "git-prompt.sh" ~/.bashrc; then
+        echo "[[ \$- == *i* ]] && . $INSTALL_DIR/git-prompt/git-prompt.sh" >> ~/.bashrc
+    fi
     ln -fns $INSTALL_DIR/git-prompt/git-prompt.conf ~/.git-prompt.conf
 fi
 
@@ -46,7 +50,9 @@ if [ -d "$INSTALL_DIR/dotfiles" ]; then
 else
     cd $INSTALL_DIR
     git clone git://github.com/qianthinking/dotfiles.git
-    echo ". $INSTALL_DIR/dotfiles/.bashrc.addon" >> ~/.bashrc
+    if ! grep "bashrc.addon" ~/.bashrc; then
+        echo ". $INSTALL_DIR/dotfiles/.bashrc.addon" >> ~/.bashrc
+    fi
     install_script ".gitconfig"
     install_script ".pentadactylrc"
     install_script ".tmux.conf"
