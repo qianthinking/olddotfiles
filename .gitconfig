@@ -5,6 +5,7 @@
     co = checkout
     br = branch
     di = diff
+    diw = diff --color-words
     dic = diff --cached
     glog = log --graph
     rb = svn rebase
@@ -19,7 +20,7 @@
     name = 
 	email = 
 [color]
-    ui = auto
+	ui = auto
     diff = auto
     status = auto
     branch = auto
@@ -32,9 +33,12 @@
 	history-view-vpane-position = 422
 	main-window-view = HistoryView
 	file-view-vpane-position = 798
-#[http]
-#	proxy = 127.0.0.1:8118
 [http]
+    #proxy = socks5://127.0.0.1:7070
 	sslVerify = true
 [push]
 	default = current
+[diff]
+    tool = meld
+[difftool]
+    prompt = false
