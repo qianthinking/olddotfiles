@@ -19,6 +19,7 @@ alias lsS='ls -lShr'
 alias lst='ls -ltr'
 alias less='less -R'
 
+export CLICOLOR=1
 export TERM=xterm-256color
 alias tm='TERM=xterm-256color tmux -2'
 alias tn='tm new -s'
